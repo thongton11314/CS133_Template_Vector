@@ -48,24 +48,23 @@ int main()
 	list.add(8, obj8);
 	list.add(9, obj9);
 	list.add(10, obj10);
-	list.add(11, obj11);
-	list.add(12, obj12);
+	list.add(3, obj11);
+	/*list.add(12, obj12);
 	list.add(13, obj13);
 	list.add(14, obj14);
 	list.add(15, obj15);
 	list.add(16, obj16);
 	list.add(17, obj17);
-	list.add(18, obj18);
-	list.add(19, obj19);
-	list.add(20, obj20);
+	list.add(18, obj18);*/
+
 	//Testing adding
 	for (int i = 0; i < list.size(); i++)
 		cout << list.get(i).toString() << endl;
 	cout << "Count before remove: " << list.size() << endl;
 	cout << endl;
 	//Testing remove
-	for (int i = 0; i < 10; i++)
-		list.remove(11);
+	list.remove(3);
+	list.remove(3);
 	for (int i = 0; i < list.size(); i++)
 		cout << list.get(i).toString() << endl;
 	cout << "Count after remove:" << list.size() << endl;

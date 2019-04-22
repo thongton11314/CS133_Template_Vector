@@ -106,7 +106,7 @@ public:
 	{
 		if (index > count)
 			throw std::out_of_range("Out of range: 0.." + count - 1);
-		return *(arr + index);
+		return arr[index];
 	}
 
 	int size()
