@@ -60,14 +60,18 @@ public:
 		capacity = 10;
 	}
 
-	~SimpleVector() {};
+	~SimpleVector()
+        {
+                delete[] arr;
+        }
 
 	void add(int index, C value)
 	{
-		count++;
+		
                 if (index < 0 || index > capacity)
                     throw std::out_of_range(“Out of range”);
-		else if (count < capacity)
+		count++;
+                if (count < capacity)
 		{
 			for (int i = capacity - 1; i == index; i--)
 				*(arr + index + 1) = *(arr + index);
