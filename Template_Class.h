@@ -4,6 +4,7 @@
 #include <stdexcept>
 #include <iostream>
 #include <string>
+#include <iostream>
 
 /*Requirement
 Name: SimpleVector
@@ -61,30 +62,33 @@ public:
 	}
 
 	~SimpleVector()
-        {
-                delete[] arr;
-        }
+	{
+		delete[] arr;
+	};
 
 	void add(int index, C value)
 	{
-		
-                if (index < 0 || index > capacity)
-                    throw std::out_of_range(“Out of range”);
 		count++;
-                if (count < capacity)
+		if (index < 0 || index > capacity - 1)
+			throw std::out_of_range("Out_of_range");
+		if (count < capacity)
 		{
-			for (int i = capacity - 1; i == index; i--)
-				*(arr + index + 1) = *(arr + index);
-			*(arr + index) = value;
+			for (int i = index; i < count; i++)
+			{
+				C temp = arr[count];
+				arr[count] = arr[i];
+				arr[i] = temp;
+			}
+			arr[index] = value;
 		}
-		else if (count == capacity)
+		if (count == capacity)
 		{
-			*(arr + count - 1) = value;
+			arr[count - 1] = value;
 			capacity = capacity * 2;
 			C* temp = arr;
 			arr = new C[capacity];
 			for (int i = 0; i < (capacity / 2); i++)
-				*(arr + i) = *(temp + i);
+				arr[i] = temp[i];
 			delete[] temp;
 		}
 	}
@@ -94,7 +98,7 @@ public:
 		if (index > count)
 			throw std::out_of_range("Out_of_Range");
 		for (int i = index; i < count; i++)
-			*(arr + i) = *(arr + i + 1);
+			arr[i] = arr[i + 1];
 		count--;
 	}
 
