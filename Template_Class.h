@@ -68,7 +68,6 @@ public:
 
 	void add(int index, C value)
 	{
-		count++;
 		if (index < 0 || index > capacity - 1)
 			throw std::out_of_range("Out_of_range");
 		if (count < capacity)
@@ -80,6 +79,7 @@ public:
 				arr[i] = temp;
 			}
 			arr[index] = value;
+			count++;
 		}
 		if (count == capacity)
 		{
@@ -90,6 +90,7 @@ public:
 			for (int i = 0; i < (capacity / 2); i++)
 				arr[i] = temp[i];
 			delete[] temp;
+			count++;
 		}
 	}
 
