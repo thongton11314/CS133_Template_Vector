@@ -83,13 +83,12 @@ public:
 		}
 		if (count == capacity)
 		{
-			arr[count - 1] = value;
 			capacity = capacity * 2;
-			C* temp = arr;
-			arr = new C[capacity];
-			for (int i = 0; i < (capacity / 2); i++)
-				arr[i] = temp[i];
-			delete[] temp;
+			T* temp = new T[capacity];
+			for (unsigned int i = 0; i < this->size(); i++)
+				temp[i] = arr[i];
+			delete[] arr;
+			arr = temp;
 			count++;
 		}
 	}
